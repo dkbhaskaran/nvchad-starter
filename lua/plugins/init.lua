@@ -42,21 +42,30 @@ return {
       require "configs.mason-lint"
     end,
   },
-
   {
     "stevearc/conform.nvim",
     event = "BufWritePre",
     config = function()
-      require "configs.conform"
+      require("conform").setup {
+        formatters_by_ft = {
+          lua = { "stylua" },
+          c = { "clang-format" },
+          cpp = { "clang-format" },
+          h = { "clang-format" },
+        },
+        format_on_save = {
+          lsp_fallback = true,
+          timeout_ms = 1000,
+        },
+      }
     end,
   },
-
   {
     "zapling/mason-conform.nvim",
     event = "VeryLazy",
-    dependencies = { "conform.nvim" },
+    dependencies = { "stevearc/conform.nvim" },
     config = function()
-      require "configs.mason-conform"
+      require("mason-conform").setup()
     end,
   },
   {
