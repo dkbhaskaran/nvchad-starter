@@ -51,6 +51,7 @@ return {
           lua = { "stylua" },
           c = { "clang-format" },
           cpp = { "clang-format" },
+          cuda = { "clang-format" },
           h = { "clang-format" },
         },
         format_on_save = {
