@@ -1,0 +1,5 @@
+.repro/
+.tests/
+lazy-lock.json
+plugin/packer_compiled.lua
+spell
